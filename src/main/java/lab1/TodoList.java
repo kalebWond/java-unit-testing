@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class TodoList {
     private ArrayList<Todo> todoList = new ArrayList<Todo>();
+    private Database database;
+
+    public TodoList(Database database) {
+        this.database = database;
+    }
 
     public Todo createTodo(String description) {
         description = description.trim();
@@ -24,7 +29,7 @@ public class TodoList {
             Todo todo = todoList.get(i); 
             System.out.println("Id: " + todo.getId());
             System.out.println("Task: "+ todo.getDescription());
-            System.out.println("Completed: "+ todo.getStatus());
+            System.out.println("Completed: "+ todo.getCompletedStatus());
             System.out.println("\n");
         }
     }
@@ -56,4 +61,26 @@ public class TodoList {
         return null;
     }
 
+    public int getTodoListSize() {
+        return todoList.size();
+    }
+
+    public ArrayList<Todo> clearList() {
+        todoList.clear();
+        return todoList;
+    }
+
+    public boolean isThereConnection() {
+        return database.isConnectionAvailable();
+    }
+
+    public String runSqlQuery(String query) {
+        boolean haveConnection = database.isConnectionAvailable();
+        String result;
+        if(haveConnection) {
+            return result = "Connection Established: " + query;
+        } else {
+            return result = null;
+        }
+    }
 }

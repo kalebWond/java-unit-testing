@@ -32,7 +32,7 @@ public class Todo {
         return description;
     }
 
-    public boolean getStatus() {
+    public boolean getCompletedStatus() {
         return completed;
     }
 }

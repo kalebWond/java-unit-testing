@@ -1,18 +1,10 @@
 package lab1;
-
-/**
- * Hello world!
- */
 public final class App {
     private App() {
     }
-
-    /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
-     */
     public static void main(String[] args) {
-        TodoList list = new TodoList();
+        TodoList list = new TodoList(new Database());
+        // System.out.println(list.runSqlQuery("insert into table todo"));
         list.createTodo("do some work");
         list.createTodo("do some work 2");
         list.createTodo("do some work 3");
