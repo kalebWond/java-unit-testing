@@ -78,7 +78,8 @@ public class TodoList {
         boolean haveConnection = database.isConnectionAvailable();
         String result;
         if(haveConnection) {
-            return result = "Connection Established: " + query;
+            result = "Connection Established: " + query;
+            return result;
         } else {
             return result = null;
         }
